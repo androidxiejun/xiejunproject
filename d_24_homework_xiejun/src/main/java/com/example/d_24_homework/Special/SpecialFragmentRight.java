@@ -116,7 +116,7 @@ public class SpecialFragmentRight extends Fragment implements ICallback{
                 viewHolder= (ViewHolder) view.getTag();
             }
             SpecialGameInfo info=gameList.get(position);
-            viewHolder.gameImg.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.gameImg.setImageResource(R.drawable.ic_launcher);
             viewHolder.gameTitle.setText(info.gameTitle);
             ImageLoader.init(context).load(BODY+info.gameIngUrl,viewHolder.gameImg);
             return view;

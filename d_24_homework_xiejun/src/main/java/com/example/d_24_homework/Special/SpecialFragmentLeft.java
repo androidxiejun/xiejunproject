@@ -130,7 +130,7 @@ public class SpecialFragmentLeft extends Fragment implements ICallback{
                 viewHolder= (ViewHolder) view.getTag();
             }
             SpecialBounchInfo info=bounchList.get(position);
-            viewHolder.bounchImg.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.bounchImg.setImageResource(R.drawable.ic_launcher);
             viewHolder.bounchTitle.setText(info.bounchTitle);
             viewHolder.bounchTime.setText(info.bounchTime);
             ImageLoader.init(context).load(BODY+info.bounchImgUrl,viewHolder.bounchImg);

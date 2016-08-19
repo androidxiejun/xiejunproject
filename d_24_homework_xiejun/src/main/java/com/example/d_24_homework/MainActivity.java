@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            if(msg.what==1){
                mTvTitle.setText("开服");
                orderImg.setVisibility(View.VISIBLE);
+           }else if(msg.what==2){
+               mTvTitle.setText("独家企划");
+               orderImg.setVisibility(View.VISIBLE);
            }
        }
    };
@@ -226,6 +229,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        msgMap.put(code,number);
         mTvTitle.setText("共发现"+number+"条开服数据");
         orderImg.setVisibility(View.INVISIBLE);
-        mHandler.sendEmptyMessageDelayed(1,1000);
+        switch (code){
+            case 1:
+                mHandler.sendEmptyMessageDelayed(1,1000);
+                break;
+            case 2:
+                mHandler.sendEmptyMessageDelayed(2,1000);
+        }
+
     }
 }

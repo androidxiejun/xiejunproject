@@ -196,7 +196,7 @@ public class OpenFragmentLeft extends Fragment implements ICallback{
             viewHolder.viewTime.setText(rightInfo.time);
             viewHolder.viewBusiness.setText(rightInfo.business);
             viewHolder.viewArea.setText(rightInfo.area);
-            viewHolder.viewImg.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.viewImg.setImageResource(R.drawable.ic_launcher);
             final String gName=rightInfo.title;
             final String gId=rightInfo.gId;
             ImageLoader.init(context).load(HOST+rightInfo.imgUrl,viewHolder.viewImg);

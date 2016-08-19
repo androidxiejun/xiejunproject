@@ -89,6 +89,7 @@ public class BoundDetileActivity extends AppCompatActivity implements ICallback{
         mTv= (TextView) findViewById(R.id.special_bound_detile_title);
         mGv= (GridView) findViewById(R.id.special_bound_detile_grid_view);
         mGridAdapter=new MyGridAdapter();
+        mIv.setImageResource(R.drawable.ic_launcher);
         ImageLoader.init(context).load(BODY+imgUrl,mIv);
         mTv.setText(text);
         mGv.setAdapter(mGridAdapter);
@@ -152,7 +153,7 @@ public class BoundDetileActivity extends AppCompatActivity implements ICallback{
                 viewHolder= (ViewHolder) view.getTag();
             }
             SpecialBoundDetileGridInfo info=gridList.get(position);
-            viewHolder.gridImg.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.gridImg.setImageResource(R.drawable.ic_launcher);
             viewHolder.gridTitle.setText(info.gridTitle);
             ImageLoader.init(context).load(BODY+info.gridImg,viewHolder.gridImg);
             return view;

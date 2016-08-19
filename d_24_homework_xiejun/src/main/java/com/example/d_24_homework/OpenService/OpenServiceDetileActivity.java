@@ -276,10 +276,10 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
                     for (int i = 0; i < imgList.size(); i++) {
                         ImageView imageView=new ImageView(context);
                         TextView textView=new TextView(context);
-                        imageView.setImageResource(R.mipmap.ic_launcher);
+                        imageView.setImageResource(R.drawable.ic_launcher);
                         ImageLoader.init(context).load(BODY+imgList.get(i),imageView);
                         imageView.setLayoutParams(new LinearLayout.LayoutParams(550, ViewGroup.LayoutParams.MATCH_PARENT));
-                        textView.setLayoutParams(new LinearLayout.LayoutParams(2,ViewGroup.LayoutParams.MATCH_PARENT));
+                        textView.setLayoutParams(new LinearLayout.LayoutParams(5,ViewGroup.LayoutParams.MATCH_PARENT));
                         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                         mLinearLayout.addView(imageView);
                         mLinearLayout.addView(textView);

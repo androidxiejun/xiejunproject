@@ -155,7 +155,7 @@ public class SearchMainActivity extends AppCompatActivity implements ICallback{
             }
             GameGift gift=new GameGift();
             gift=giftList.get(position);
-            viewHolder.imageView.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.imageView.setImageResource(R.drawable.ic_launcher);
             viewHolder.title.setText(gift.title);
             viewHolder.content.setText(gift.content);
             viewHolder.number.setText(gift.number);
@@ -169,7 +169,7 @@ public class SearchMainActivity extends AppCompatActivity implements ICallback{
                 viewHolder.btn.setBackgroundColor(Color.GRAY);
             }else{
                 viewHolder.btn.setText("确定领取");
-                viewHolder.btn.setBackgroundColor(Color.RED);
+                viewHolder.btn.setBackgroundColor(Color.rgb(253,100,100));
             }
             viewHolder.btn.setOnClickListener(new View.OnClickListener() {
                 @Override

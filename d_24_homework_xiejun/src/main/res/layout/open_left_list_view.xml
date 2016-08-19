@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_weight="1">
@@ -22,10 +22,12 @@
             android:id="@+id/open_left__listview_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textStyle="bold"
+            android:textSize="17sp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
            <ImageView
                android:layout_width="15dp"
@@ -45,15 +47,18 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="运营商:"/>
+                android:text="运营商:"
+                android:textSize="12sp"/>
             <TextView
                 android:id="@+id/open_left_listview_business"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="12sp"
                 android:singleLine="true"/>
         </LinearLayout>
     </LinearLayout>

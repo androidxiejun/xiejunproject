@@ -64,6 +64,7 @@ public class MyFragment extends Fragment {
     private TextView searchTv;
     private NotificationManager mManager;
     private int id;
+    private boolean circle=true;
     static MyFragment newInstance(){
         return new MyFragment();
     }
@@ -75,8 +76,7 @@ public class MyFragment extends Fragment {
     private Handler mHandler2=new Handler(){
         @Override
         public void handleMessage(Message msg) {
-                mVp.setCurrentItem(index%5);
-                index++;
+                mVp.setCurrentItem(index++%5);
                 mHandler2.sendEmptyMessageDelayed(1,4000);
         }
     };
@@ -170,7 +170,7 @@ public class MyFragment extends Fragment {
             }
             GameGift gift=new GameGift();
             gift=giftList.get(position);
-            viewHolder.imageView.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.imageView.setImageResource(R.drawable.ic_launcher);
             viewHolder.title.setText(gift.content);
             viewHolder.content.setText(gift.title);
             viewHolder.number.setText(gift.number);
@@ -242,7 +242,7 @@ public class MyFragment extends Fragment {
         public Object instantiateItem(ViewGroup container, int position) {
             index=position;
             ImageView imageView=new ImageView(mContext);
-            imageView.setImageResource(R.mipmap.ic_launcher);
+            imageView.setImageResource(R.drawable.ic_launcher);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             ImageLoader imageLoader = ImageLoader.init(mContext);
             imageLoader.load(viewImageList.get(position%5 ),imageView);
@@ -263,9 +263,13 @@ public class MyFragment extends Fragment {
                 mLv.onRefreshComplete();
                 mViewAdapter.notifyDataSetChanged();
                 mAdapter.notifyDataSetChanged();
-                if(viewImageList.size()>0){
-                    mHandler2.sendEmptyMessageDelayed(1,2000);
+                while(circle){
+                    if(viewImageList.size()>0){
+                        mHandler2.sendEmptyMessageDelayed(1,2000);
+                        circle=false;
+                    }
                 }
+
             }
         };
         @Override

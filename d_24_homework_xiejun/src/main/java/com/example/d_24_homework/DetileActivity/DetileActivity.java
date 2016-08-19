@@ -1,8 +1,11 @@
 package com.example.d_24_homework.DetileActivity;
 
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -44,6 +47,8 @@ public class DetileActivity extends AppCompatActivity implements ICallback{
     private String imageUrl="";
     private Dialog dialog;
     private CircleImageView mCircleIv;
+    public Resources r;
+    private String picPath="D:\\pic\\def_head.jpg";
     private Map<String,Object>bodyMap=new HashMap<>();
     private final String HOST="http://www.1688wan.com";
     private final String URL_PATH="http://www.1688wan.com/majax.action?method=getGiftInfo";
@@ -53,6 +58,7 @@ public class DetileActivity extends AppCompatActivity implements ICallback{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detile_layout);
+        r = this.getResources();
         context=this;
         getInfo();
         bodyMap.put("id",id);
@@ -100,7 +106,34 @@ public class DetileActivity extends AppCompatActivity implements ICallback{
         startActivity(intent);
     }
     public void onClickShare(View view){
-         showDialog();
+        //分享字符信息
+//        Intent sendIntent = new Intent();
+//        sendIntent.setAction(Intent.ACTION_SEND);
+//        sendIntent.putExtra(Intent.EXTRA_TEXT,"快来领取礼包"+URL_PATH);
+//        sendIntent.setType("text/plain");
+//        startActivity(sendIntent);
+        //分享图片信息
+        Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
+                r.getResourcePackageName(R.drawable.ic_launcher) + "/" +
+                r.getResourceTypeName(R.drawable.ic_launcher) + "/" +
+                r.getResourceEntryName(R.drawable.ic_launcher));
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM,uri);
+        shareIntent.setType("image/jpeg");
+        startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.app_name)));
+   //分享图片列表
+//        List<Uri>uriList=new ArrayList<>();
+//        uriList.add(uri);
+//        uriList.add(uri);
+//        uriList.add(uri);
+//        uriList.add(uri);
+//        Intent shareIntent = new Intent();
+//        shareIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
+//        shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, (ArrayList<? extends Parcelable>) uriList);
+//        shareIntent.setType("image/*");
+//        startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.app_name)));
+
     }
    private void showDialog(){
        AlertDialog.Builder builder=new AlertDialog.Builder(context);
@@ -118,7 +151,7 @@ public class DetileActivity extends AppCompatActivity implements ICallback{
             String jasonStr= jsonObject.getString("info");
             JSONObject jsonObject1=new JSONObject(jasonStr);
             imageUrl=jsonObject1.getString("iconurl");
-            mCircleIv.setImageResource(R.mipmap.ic_launcher);
+            mCircleIv.setImageResource(R.drawable.ic_launcher);
             String contentOne=jsonObject1.getString("explains");
             String contentTwo=jsonObject1.getString("descs");
             int number=Integer.valueOf(jsonObject1.getString("exchanges"));

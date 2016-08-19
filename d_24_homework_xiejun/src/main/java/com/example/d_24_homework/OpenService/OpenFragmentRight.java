@@ -117,7 +117,7 @@ public class OpenFragmentRight extends Fragment implements ICallback{
             }
             OpenServiceInfo openServiceInfo=new OpenServiceInfo();
             openServiceInfo=dataList.get(position);
-            viewHolder.imageView.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.imageView.setImageResource(R.drawable.ic_launcher);
             viewHolder.title.setText(openServiceInfo.title);
             viewHolder.business.setText(openServiceInfo.business);
             viewHolder.time.setText(openServiceInfo.time);

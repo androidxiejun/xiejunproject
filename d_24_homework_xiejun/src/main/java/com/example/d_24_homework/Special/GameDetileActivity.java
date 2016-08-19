@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -44,6 +47,7 @@ public class GameDetileActivity extends AppCompatActivity implements ICallback{
     private String text="";
     private String imgUrl="";
     private String message="";
+    private Button mShareIv;
     private MyGameDetileAdapter mAdapter;
     private List<SpecialGameDetileListInfo>gameList=new ArrayList<>();
     private Map<String,Object>dataMap=new HashMap<>();
@@ -82,6 +86,7 @@ public class GameDetileActivity extends AppCompatActivity implements ICallback{
        View view= LayoutInflater.from(context).inflate(R.layout.special_game_detile_action_bar,null);
        actionTv= (TextView) view.findViewById(R.id.special_game_detile_action_title);
        actionBtn= (Button) view.findViewById(R.id.special_game_detile_action_img);
+       mShareIv= (Button) view.findViewById(R.id.special_game_detile_action_bar_share);
        actionTv.setText(text);
        mActionBar=getSupportActionBar();
        mActionBar.setDisplayShowCustomEnabled(true);
@@ -89,6 +94,18 @@ public class GameDetileActivity extends AppCompatActivity implements ICallback{
        mActionBar.setTitle("");
        actionTv.setText(text);
    }
+    public void onShareClick(View view){
+        showDialog();
+    }
+    private void showDialog(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        View view=LayoutInflater.from(context).inflate(R.layout.share_alert_dialog_item,null);
+        builder.setView(view);
+        AlertDialog dialog=builder.create();
+        Window window=dialog.getWindow();
+        window.setGravity(Gravity.BOTTOM);
+        dialog.show();
+    }
     public void onClick(View view){
         finish();
     }
@@ -143,7 +160,7 @@ public class GameDetileActivity extends AppCompatActivity implements ICallback{
                 viewHolder= (ViewHolder) view.getTag();
             }
             SpecialGameDetileListInfo info=gameList.get(position);
-            viewHolder.gameImg.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.gameImg.setImageResource(R.drawable.ic_launcher);
             viewHolder.gameMessage.setText(info.detileMessge);
             viewHolder.gameSize.setText(info.detileSize);
             viewHolder.gameType.setText(info.detileActor);

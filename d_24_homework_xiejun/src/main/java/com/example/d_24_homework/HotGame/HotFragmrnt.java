@@ -154,8 +154,8 @@ public class HotFragmrnt extends Fragment implements ICallback{
             viewHolder.hotTitle.setText(hotListInfo.hotTitle);
             viewHolder.hotType.setText(hotListInfo.hotType);
             viewHolder.hotSize.setText(hotListInfo.hotSize);
-            viewHolder.hotPerson.setText(hotListInfo.person+"人在玩");
-            viewHolder.hotImg.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.hotPerson.setText(hotListInfo.person+"");
+            viewHolder.hotImg.setImageResource(R.drawable.ic_launcher);
             ImageLoader.init(mContext).load(BODY+hotListInfo.hotImgUrl,viewHolder.hotImg);
             return view;
         }
@@ -204,7 +204,7 @@ public class HotFragmrnt extends Fragment implements ICallback{
             }
             HotGridInfo hotGridInfo=hotGridInfoList.get(position);
             viewHolder.title.setText(hotGridInfo.gridTitle);
-            viewHolder.imageView.setImageResource(R.mipmap.ic_launcher);
+            viewHolder.imageView.setImageResource(R.drawable.ic_launcher);
             ImageLoader.init(mContext).load(BODY+hotGridInfo.gridImgUrl,viewHolder.imageView);
             return view;
         }
