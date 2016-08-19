@@ -50,10 +50,18 @@
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/open_right_detile_view_pager"
+    <HorizontalScrollView
+        android:id="@+id/open_right_detile_scroll_view"
         android:layout_width="wrap_content"
-        android:layout_height="300dp" />
+        android:layout_height="300dp">
+        <LinearLayout
+            android:id="@+id/open_right_detile_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </HorizontalScrollView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
