@@ -13,7 +13,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -24,7 +23,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,7 +64,6 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
     private ImageView mLogoIv;
     private ViewPager mVp;
     private Button mBackBtn,downBtn;
-    private MyPagerAdapter mPagerAdapter;
     private String down_addr="";
     private String size="";
     private Random random;
@@ -78,6 +78,8 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
     private Map<String,Object>bodyMap=new HashMap<>();
     private ExecutorService mExeService;
     private File externalStoragePublicDirectory;
+    private HorizontalScrollView mScrollView;
+    private LinearLayout mLinearLayout;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,16 +91,16 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
         initView();
         initActionBar();
          HttpUtils.load(URL_PATH).post(bodyMap).callback(this,3);
-        mVp.setAdapter(mPagerAdapter);
     }
 
     private void initView() {
+        mScrollView= (HorizontalScrollView) findViewById(R.id.open_right_detile_scroll_view);
+        mLinearLayout= (LinearLayout) findViewById(R.id.open_right_detile_linear_layout);
         mTitle= (TextView) findViewById(R.id.open_right_detile_title);
         mType= (TextView) findViewById(R.id.open_right_detile_type);
         mSize= (TextView) findViewById(R.id.open_right_detile_size);
         mLogoIv= (ImageView) findViewById(R.id.open_service_right_img);
         mIntroduce= (TextView) findViewById(R.id.open_right_introduce);
-        mVp= (ViewPager) findViewById(R.id.open_right_detile_view_pager);
         downBtn= (Button) findViewById(R.id.detile_down_load_btn);
         downBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +108,6 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
                 showDialog(null);
             }
         });
-        mPagerAdapter=new MyPagerAdapter();
     }
     private void showDialog(String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -142,7 +143,8 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
             }
         });
     }
-    private void intall(String path) {
+
+    private void install(String path) {
         String pathUrl=getPath(path);
         externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File file = new File(externalStoragePublicDirectory + pathUrl);
@@ -169,7 +171,7 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
         File file = new File(externalStoragePublicDirectory + pathUrl);
         if(file.exists()){
             Toast.makeText(OpenServiceDetileActivity.this, "已经下载", Toast.LENGTH_SHORT).show();
-            intall(path);
+            install(path);
             return;
         }
             downBtn.setText("正在下载");
@@ -271,13 +273,22 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
         public void handleMessage(Message msg) {
             switch(msg.what){
                 case 1:
-                    mPagerAdapter.notifyDataSetChanged();
+                    for (int i = 0; i < imgList.size(); i++) {
+                        ImageView imageView=new ImageView(context);
+                        TextView textView=new TextView(context);
+                        imageView.setImageResource(R.mipmap.ic_launcher);
+                        ImageLoader.init(context).load(BODY+imgList.get(i),imageView);
+                        imageView.setLayoutParams(new LinearLayout.LayoutParams(550, ViewGroup.LayoutParams.MATCH_PARENT));
+                        textView.setLayoutParams(new LinearLayout.LayoutParams(2,ViewGroup.LayoutParams.MATCH_PARENT));
+                        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                        mLinearLayout.addView(imageView);
+                        mLinearLayout.addView(textView);
+                    }
                     break;
                 case 2:
-                    intall(down_addr);
+                    install(down_addr);
                     break;
             }
-
 
         }
     };
@@ -315,30 +326,5 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
         Message message = mHandler.obtainMessage();
         message.what=1;
         message.sendToTarget();
-    }
-    class MyPagerAdapter extends PagerAdapter{
-
-        @Override
-        public int getCount() {
-            return imgList.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view==object;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            ImageView imageView=new ImageView(context);
-            ImageLoader.init(context).load(BODY+imgList.get(position),imageView);
-            container.addView(imageView);
-            return imageView;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-           container.removeView((View) object);
-        }
     }
 }
