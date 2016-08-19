@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/d_24_homework_xiejun" />
+            <option value="$PROJECT_DIR$/day18_update_homework" />
+            <option value="$PROJECT_DIR$/day19_viewpager_tablayout" />
+            <option value="$PROJECT_DIR$/day21_toolbar_helloworld" />
+            <option value="$PROJECT_DIR$/day24_expandablelistview" />
+            <option value="$PROJECT_DIR$/day29_drawerlayout" />
+            <option value="$PROJECT_DIR$/day29_pulltorefresh_listview" />
+            <option value="$PROJECT_DIR$/httplibrary" />
+            <option value="$PROJECT_DIR$/imageloader" />
+            <option value="$PROJECT_DIR$/refreshlibrary" />
+            <option value="$PROJECT_DIR$/servicetext" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/d_24_homework_xiejun" />
+            <option value="$PROJECT_DIR$/day18_update_homework" />
+            <option value="$PROJECT_DIR$/day19_viewpager_tablayout" />
+            <option value="$PROJECT_DIR$/day21_toolbar_helloworld" />
+            <option value="$PROJECT_DIR$/day24_expandablelistview" />
+            <option value="$PROJECT_DIR$/day29_drawerlayout" />
+            <option value="$PROJECT_DIR$/day29_pulltorefresh_listview" />
+            <option value="$PROJECT_DIR$/httplibrary" />
+            <option value="$PROJECT_DIR$/imageloader" />
+            <option value="$PROJECT_DIR$/refreshlibrary" />
+            <option value="$PROJECT_DIR$/servicetext" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.androidxx.yangjw.day29_drawerlayout.MainActivity">
+
+    <!-- 宽度和高度取值不能是wrap_content -->
+    <!--宽度和高度取值建议是match_parent -->
+    <!-- drawerlayout中必须只有2个child -->
+   <android.support.v4.widget.DrawerLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <!-- 内容界面在第一个位置 -->
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:text="这是内容"/>
+       </LinearLayout>
+
+       <!--侧滑面板必须在内容的下方  -->
+       <!-- layout_gravity决定侧滑面板的滑出方向 -->
+       <TextView
+           android:layout_width="200dp"
+           android:layout_height="match_parent"
+           android:layout_gravity="right"
+           android:background="@color/colorPrimary"
+           android:text="滑动面板"/>
+   </android.support.v4.widget.DrawerLayout>
+</RelativeLayout>

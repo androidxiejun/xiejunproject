@@ -1,0 +1,1 @@
+include ':app', ':d_24_homework_xiejun', ':imageloader', ':httplibrary', ':day21_toolbar_helloworld', ':day19_viewpager_tablayout', ':day24_expandablelistview', ':day29_drawerlayout', ':day18_update_homework', ':day29_pulltorefresh_listview', ':refreshlibrary', ':servicetext'

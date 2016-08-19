@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GiftBags.iml" filepath="$PROJECT_DIR$/GiftBags.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d_24_homework_xiejun/d_24_homework_xiejun.iml" filepath="$PROJECT_DIR$/d_24_homework_xiejun/d_24_homework_xiejun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day18_update_homework/day18_update_homework.iml" filepath="$PROJECT_DIR$/day18_update_homework/day18_update_homework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day19_viewpager_tablayout/day19_viewpager_tablayout.iml" filepath="$PROJECT_DIR$/day19_viewpager_tablayout/day19_viewpager_tablayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day21_toolbar_helloworld/day21_toolbar_helloworld.iml" filepath="$PROJECT_DIR$/day21_toolbar_helloworld/day21_toolbar_helloworld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day24_expandablelistview/day24_expandablelistview.iml" filepath="$PROJECT_DIR$/day24_expandablelistview/day24_expandablelistview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day29_drawerlayout/day29_drawerlayout.iml" filepath="$PROJECT_DIR$/day29_drawerlayout/day29_drawerlayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day29_pulltorefresh_listview/day29_pulltorefresh_listview.iml" filepath="$PROJECT_DIR$/day29_pulltorefresh_listview/day29_pulltorefresh_listview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/httplibrary/httplibrary.iml" filepath="$PROJECT_DIR$/httplibrary/httplibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imageloader/imageloader.iml" filepath="$PROJECT_DIR$/imageloader/imageloader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/refreshlibrary/refreshlibrary.iml" filepath="$PROJECT_DIR$/refreshlibrary/refreshlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servicetext/servicetext.iml" filepath="$PROJECT_DIR$/servicetext/servicetext.iml" />
+    </modules>
+  </component>
+</project>

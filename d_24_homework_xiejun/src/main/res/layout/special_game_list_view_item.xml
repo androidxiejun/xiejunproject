@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/special_game_list_view_img"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:scaleType="centerCrop"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/special_img_shape"
+        android:layout_marginTop="165dp"
+        />
+    <TextView
+        android:id="@+id/special_game_list_view_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/detile_image_view"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:civ_border_width="2dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="170dp"
+        android:src="@drawable/kaizi"
+        app:civ_border_color="#FF000000"/>
+</RelativeLayout>
