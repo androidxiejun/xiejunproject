@@ -80,11 +80,15 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
     private File externalStoragePublicDirectory;
     private HorizontalScrollView mScrollView;
     private LinearLayout mLinearLayout;
+    private MyThreadPool myThreadPool;
+    private MyArrayThreadTool myArrayThreadTool;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.open_service_righr_detile_layout);
         mExeService= Executors.newFixedThreadPool(3);
+        myThreadPool=new MyThreadPool(2);
+        myArrayThreadTool=new MyArrayThreadTool();
         context=this;
         random=new Random();
         mManager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -177,7 +181,9 @@ public class OpenServiceDetileActivity extends AppCompatActivity implements ICal
             downBtn.setText("正在下载");
             downBtn.setEnabled(false);
             downBtn.setBackgroundColor(Color.GRAY);
-            ExecutorTool.executorService.execute(new MyRunnable(path));
+             myArrayThreadTool.execute(new MyRunnable(path));
+//            myThreadPool.execute(new MyRunnable(path));
+//            ExecutorTool.executorService.execute(new MyRunnable(path));
     }
     class MyRunnable implements Runnable {
         private String path;

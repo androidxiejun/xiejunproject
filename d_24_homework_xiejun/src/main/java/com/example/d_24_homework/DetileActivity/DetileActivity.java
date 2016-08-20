@@ -110,7 +110,7 @@ public class DetileActivity extends AppCompatActivity implements ICallback{
 //        Intent sendIntent = new Intent();
 //        sendIntent.setAction(Intent.ACTION_SEND);
 //        sendIntent.putExtra(Intent.EXTRA_TEXT,"快来领取礼包"+URL_PATH);
-//        sendIntent.setType("text/plain");
+//        sendIntent.setType("text/*");
 //        startActivity(sendIntent);
         //分享图片信息
         Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
